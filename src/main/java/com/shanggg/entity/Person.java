@@ -1,6 +1,9 @@
 package com.shanggg.entity;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -11,9 +14,12 @@ import java.util.*;
  * @Date : 下午10:16 2018/4/18
  */
 @Component
+//@ImportResource(locations = {"classpath:bean.xml"})
 @ConfigurationProperties(prefix = "person")
 public class Person {
+    //@Value(value = "${person.name}")
     private String name;
+    //@Value("#{2*7}")
     private Integer age;
     private Boolean isboy;
     private Date birthday;

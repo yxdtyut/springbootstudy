@@ -1,15 +1,15 @@
 server:
   port: 8081
-person:
-  boy: true
-  name: "张三 \n 里斯"
-  age: 14
-  birthday: 2018/4/19
-  map:
-    k1: v1
-    k2: v2
-  list:
-   - s1
-   - s2
-   - s3
-  dog: {name: beibei, age: 16, happy: true}
+#person:
+#  boy: true
+#  name: "张三 \n 里斯"
+#  age: 14
+#  birthday: 2018/4/19
+#  map:
+#    k1: v1
+#    k2: v2
+#  list:
+#   - s1
+#   - s2
+#   - s3
+#  dog: {name: beibei, age: 16, happy: true}
