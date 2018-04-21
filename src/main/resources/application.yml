@@ -1,5 +1,4 @@
-server:
-  port: 8081
+
 #person:
 #  boy: true
 #  name: "张三 \n 里斯"
@@ -13,3 +12,22 @@ server:
 #   - s2
 #   - s3
 #  dog: {name: beibei, age: 16, happy: true}
+
+
+spring:
+  profiles:
+    active: t2
+server:
+  port: 8081
+  context-path: /libai
+---
+server:
+  port: 8082
+spring:
+  profiles: t1
+
+---
+server:
+  port: 8083
+spring:
+  profiles: t2
