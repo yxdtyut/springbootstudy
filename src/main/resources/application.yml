@@ -13,21 +13,9 @@
 #   - s3
 #  dog: {name: beibei, age: 16, happy: true}
 
-
-spring:
-  profiles:
-    active: t2
 server:
   port: 8081
-  context-path: /libai
----
-server:
-  port: 8082
 spring:
-  profiles: t1
+  messages:
+    basename: i18n/login
 
----
-server:
-  port: 8083
-spring:
-  profiles: t2
