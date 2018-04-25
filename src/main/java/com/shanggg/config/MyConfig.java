@@ -1,12 +1,14 @@
 package com.shanggg.config;
 
 import com.shanggg.component.MyLocalResolver;
+import com.shanggg.interceptor.MyInterceptor;
 import com.shanggg.service.IUserService;
 import com.shanggg.service.impl.UserServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -25,10 +27,10 @@ public class MyConfig extends WebMvcConfigurerAdapter {
         return new UserServiceImpl();
     }
 
-    @Bean
-    public ViewResolver myViewResolver() {
-        return new MyViewResolver();
-    }
+//    @Bean
+//    public ViewResolver myViewResolver() {
+//        return new MyViewResolver();
+//    }
 
     //配置这样就可以不用写跳转到页面的空方法了
     @Override
@@ -36,7 +38,14 @@ public class MyConfig extends WebMvcConfigurerAdapter {
         //super.addViewControllers(registry);
         registry.addViewController("/toSuccess").setViewName("success");
         registry.addViewController("/index.html").setViewName("login");
+        registry.addViewController("/main.html").setViewName("dashboard");
 
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new MyInterceptor()).addPathPatterns("/**")
+            .excludePathPatterns("/index.html","/","/user/login");
     }
 
     @Bean

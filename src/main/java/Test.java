@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @Author : yangxudong
  * @Description :
@@ -6,9 +9,18 @@
 
 public class Test {
     public static void main(String[] args) {
-        String problemDesc = "投保人杜二粉投保华夏福临门年金保险（2015至尊版），意外风险保额达500万(包含500万)以上，需做体检项目三，并提交财务资料。";
-        String number = problemDesc.substring(problemDesc.indexOf("体检项目") + 4,
-                problemDesc.indexOf("，并"));
-        System.out.println(number);
+        List list = new ArrayList<String>();
+        list.add("1");
+        list.add("a");
+        list.add("s");
+        list.add("4");
+        System.out.println(list.toString());
+        String s = list.toString();
+        String s1 = s.substring(s.indexOf("[")+1, s.indexOf("]"));
+        System.out.println(s1);
+        String[] split = s1.split(", ");
+        for (int i = 0; i < split.length; i++) {
+            System.out.println(split[i]);
+        }
     }
 }

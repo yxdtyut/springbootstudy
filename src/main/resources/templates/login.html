@@ -7,19 +7,20 @@
 		<meta name="author" content="">
 		<title>Signin Template for Bootstrap</title>
 		<!-- Bootstrap core CSS -->
-		<link th:href="@{webjars/bootstrap/3.3.7/css/bootstrap.css}"  href="asserts/css/bootstrap.min.css" rel="stylesheet">
+		<link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.css}"  href="asserts/css/bootstrap.min.css" rel="stylesheet">
 		<!-- Custom styles for this template -->
-		<link th:href="@{asserts/css/signin.css}" href="asserts/css/signin.css" rel="stylesheet">
+		<link th:href="@{/asserts/css/signin.css}" href="asserts/css/signin.css" rel="stylesheet">
 	</head>
 
 	<body class="text-center">
-		<form class="form-signin" action="dashboard.html">
-			<img class="mb-4" th:src="@{asserts/img/bootstrap-solid.svg}" alt="" width="72" height="72">
+		<form class="form-signin" th:action="@{/user/login}" action="dashboard.html" method="post">
+			<img class="mb-4" th:src="@{/asserts/img/bootstrap-solid.svg}" alt="" width="72" height="72">
 			<h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">Please sign in</h1>
+			<P th:if="${not #strings.isEmpty(msg)}" th:text="${msg}" style="color:red"></P>
 			<label class="sr-only" th:text="#{login.username}">Username</label>
-			<input type="text" class="form-control" th:placeholder="#{login.username}" placeholder="Username" required="" autofocus="">
+			<input type="text" name="username" class="form-control" th:placeholder="#{login.username}" placeholder="Username" required="" autofocus="">
 			<label class="sr-only" th:text="#{login.password}">Password</label>
-			<input type="password" class="form-control" th:placeholder="#{login.password}" placeholder="Password" required="">
+			<input type="password" name="password" class="form-control" th:placeholder="#{login.password}" placeholder="Password" required="">
 			<div class="checkbox mb-3">
 				<label>
           <input type="checkbox" value="remember-me" /> [[#{login.remember}]]
