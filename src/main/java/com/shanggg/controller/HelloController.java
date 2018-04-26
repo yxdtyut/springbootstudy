@@ -1,7 +1,9 @@
 package com.shanggg.controller;
 
+import com.shanggg.exception.UserNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +20,10 @@ import java.util.Map;
 public class HelloController {
 
     @RequestMapping("hello")
-    public String hello() {
+    public String hello(@RequestParam("user") String user) {
+        if ("aaa".equals(user)) {
+            throw new UserNotFoundException();
+        }
         return "hello world!!!";
     }
 

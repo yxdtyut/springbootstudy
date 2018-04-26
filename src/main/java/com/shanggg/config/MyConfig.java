@@ -4,6 +4,8 @@ import com.shanggg.component.MyLocalResolver;
 import com.shanggg.interceptor.MyInterceptor;
 import com.shanggg.service.IUserService;
 import com.shanggg.service.impl.UserServiceImpl;
+import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
@@ -21,6 +23,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @Configuration
 //@PropertySource(value = {"classpath:person.properties"})
 public class MyConfig extends WebMvcConfigurerAdapter {
+
+//    @Bean
+//    public EmbeddedServletContainerCustomizer embeddedServletContainerCustomizer() {
+//        return new EmbeddedServletContainerCustomizer() {
+//            @Override
+//            public void customize(ConfigurableEmbeddedServletContainer container) {
+//                container.setPort(8888);
+//            }
+//        };
+//    }
 
     @Bean
     public IUserService userService() {
@@ -44,8 +56,8 @@ public class MyConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new MyInterceptor()).addPathPatterns("/**")
-            .excludePathPatterns("/index.html","/","/user/login");
+//        registry.addInterceptor(new MyInterceptor()).addPathPatterns("/**")
+//            .excludePathPatterns("/index.html","/","/user/login");
     }
 
     @Bean
